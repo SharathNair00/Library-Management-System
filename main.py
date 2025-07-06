@@ -18,18 +18,18 @@ class Library:
             self.books[isbn].copies += copies
         else:
             self.books[isbn] = Book(title, author, isbn, copies)
-        print(f"\n Book '{title}' added successfully.")
+        print(f"\nBook '{title}' added successfully.")
 
     def remove_book(self, isbn):
         if isbn in self.books:
             del self.books[isbn]
-            print(f"\n Book with ISBN {isbn} removed.")
+            print(f"\nBook with ISBN {isbn} removed.")
         else:
-            print("\n Book not found.")
+            print("\nBook not found.")
 
     def search_book(self, keyword):
         found = False
-        print("\n🔍 Search Results:")
+        print("\nSearch Results:")
         for book in self.books.values():
             if keyword.lower() in book.title.lower() or keyword.lower() in book.author.lower():
                 print(f" - {book}")
@@ -42,27 +42,26 @@ class Library:
             book = self.books[isbn]
             if book.copies > 0:
                 book.copies -= 1
-                print(f"\n Book '{book.title}' issued successfully.")
+                print(f"\nBook '{book.title}' issued successfully.")
             else:
-                print("\n❌ No copies available.")
+                print("\nNo copies available.")
         else:
-            print("\n❌ Book not found.")
+            print("\nBook not found.")
 
     def return_book(self, isbn):
         if isbn in self.books:
             self.books[isbn].copies += 1
-            print(f"\n Book '{self.books[isbn].title}' returned successfully.")
+            print(f"\nBook '{self.books[isbn].title}' returned successfully.")
         else:
-            print("\n❌ Book not found in library.")
+            print("\nBook not found in library.")
 
     def list_books(self):
         if not self.books:
-            print("\n No books in the library.")
+            print("\nNo books in the library.")
             return
-        print("\n📚 All Books:")
+        print("\nAll Books:")
         for book in self.books.values():
             print(f" - {book}")
-
 
 
 def main():
@@ -107,11 +106,11 @@ def main():
             lib.list_books()
 
         elif choice == "0":
-            print("👋 Exiting system. Goodbye!")
+            print("Exiting system. Goodbye!")
             break
 
         else:
-            print("❌ Invalid choice. Try again.")
+            print("Invalid choice. Try again.")
 
 
 if __name__ == "__main__":
